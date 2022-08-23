@@ -9665,6 +9665,101 @@ Source: http://ecommas.tycoelectronics.com .. ENG_CD_640456_W.pdf</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="DAC102S085CIMM_NOPB">
+<description>&lt;10-Bit Micro Power DUAL Digital-to-Analog Converter with Rail-to-Rail Output&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by SamacSys&lt;/author&gt;</description>
+<packages>
+<package name="SOP50P490X110-10N">
+<description>&lt;b&gt;DGS0010A&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-2.2" y="1" dx="1.4" dy="0.3" layer="1"/>
+<smd name="2" x="-2.2" y="0.5" dx="1.4" dy="0.3" layer="1"/>
+<smd name="3" x="-2.2" y="0" dx="1.4" dy="0.3" layer="1"/>
+<smd name="4" x="-2.2" y="-0.5" dx="1.4" dy="0.3" layer="1"/>
+<smd name="5" x="-2.2" y="-1" dx="1.4" dy="0.3" layer="1"/>
+<smd name="6" x="2.2" y="-1" dx="1.4" dy="0.3" layer="1"/>
+<smd name="7" x="2.2" y="-0.5" dx="1.4" dy="0.3" layer="1"/>
+<smd name="8" x="2.2" y="0" dx="1.4" dy="0.3" layer="1"/>
+<smd name="9" x="2.2" y="0.5" dx="1.4" dy="0.3" layer="1"/>
+<smd name="10" x="2.2" y="1" dx="1.4" dy="0.3" layer="1"/>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-3.15" y1="1.8" x2="3.15" y2="1.8" width="0.05" layer="51"/>
+<wire x1="3.15" y1="1.8" x2="3.15" y2="-1.8" width="0.05" layer="51"/>
+<wire x1="3.15" y1="-1.8" x2="-3.15" y2="-1.8" width="0.05" layer="51"/>
+<wire x1="-3.15" y1="-1.8" x2="-3.15" y2="1.8" width="0.05" layer="51"/>
+<wire x1="-1.5" y1="1.5" x2="1.5" y2="1.5" width="0.1" layer="51"/>
+<wire x1="1.5" y1="1.5" x2="1.5" y2="-1.5" width="0.1" layer="51"/>
+<wire x1="1.5" y1="-1.5" x2="-1.5" y2="-1.5" width="0.1" layer="51"/>
+<wire x1="-1.5" y1="-1.5" x2="-1.5" y2="1.5" width="0.1" layer="51"/>
+<wire x1="-1.5" y1="1" x2="-1" y2="1.5" width="0.1" layer="51"/>
+<wire x1="-1.15" y1="1.5" x2="1.15" y2="1.5" width="0.2" layer="21"/>
+<wire x1="1.15" y1="1.5" x2="1.15" y2="-1.5" width="0.2" layer="21"/>
+<wire x1="1.15" y1="-1.5" x2="-1.15" y2="-1.5" width="0.2" layer="21"/>
+<wire x1="-1.15" y1="-1.5" x2="-1.15" y2="1.5" width="0.2" layer="21"/>
+<wire x1="-2.9" y1="1.5" x2="-1.5" y2="1.5" width="0.2" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="DAC102S085CIMM_NOPB">
+<wire x1="5.08" y1="2.54" x2="27.94" y2="2.54" width="0.254" layer="94"/>
+<wire x1="27.94" y1="-12.7" x2="27.94" y2="2.54" width="0.254" layer="94"/>
+<wire x1="27.94" y1="-12.7" x2="5.08" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-12.7" width="0.254" layer="94"/>
+<text x="29.21" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="29.21" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="VA" x="0" y="0" length="middle"/>
+<pin name="VOUTA" x="0" y="-2.54" length="middle"/>
+<pin name="VOUTB" x="0" y="-5.08" length="middle"/>
+<pin name="NC_1" x="0" y="-7.62" length="middle"/>
+<pin name="NC_2" x="0" y="-10.16" length="middle"/>
+<pin name="SCLK" x="33.02" y="0" length="middle" rot="R180"/>
+<pin name="!SYNC" x="33.02" y="-2.54" length="middle" rot="R180"/>
+<pin name="DIN" x="33.02" y="-5.08" length="middle" rot="R180"/>
+<pin name="VREFIN" x="33.02" y="-7.62" length="middle" rot="R180"/>
+<pin name="GND" x="33.02" y="-10.16" length="middle" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="DAC102S085CIMM_NOPB" prefix="IC">
+<description>&lt;b&gt;10-Bit Micro Power DUAL Digital-to-Analog Converter with Rail-to-Rail Output&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="https://www.ti.com/lit/ds/symlink/dac102s085.pdf?ts=1600169506760&amp;ref_url=https%3A%2F%2Fwww.ti.com%2Fstore%2Fti%2Fen%2Fp%2Fproduct%2F%3Fp%3DDAC102S085CIMM%2FNOPB%26keyMatch%3DDAC102S085CIMM%2FNOPB%26tisearch%3DSearch-EN-e"&gt; Datasheet &lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="DAC102S085CIMM_NOPB" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOP50P490X110-10N">
+<connects>
+<connect gate="G$1" pin="!SYNC" pad="9"/>
+<connect gate="G$1" pin="DIN" pad="8"/>
+<connect gate="G$1" pin="GND" pad="6"/>
+<connect gate="G$1" pin="NC_1" pad="4"/>
+<connect gate="G$1" pin="NC_2" pad="5"/>
+<connect gate="G$1" pin="SCLK" pad="10"/>
+<connect gate="G$1" pin="VA" pad="1"/>
+<connect gate="G$1" pin="VOUTA" pad="2"/>
+<connect gate="G$1" pin="VOUTB" pad="3"/>
+<connect gate="G$1" pin="VREFIN" pad="7"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="ARROW_PART_NUMBER" value="DAC102S085CIMM/NOPB" constant="no"/>
+<attribute name="ARROW_PRICE-STOCK" value="https://www.arrow.com/en/products/dac102s085cimmnopb/texas-instruments" constant="no"/>
+<attribute name="DESCRIPTION" value="10-Bit Micro Power DUAL Digital-to-Analog Converter with Rail-to-Rail Output" constant="no"/>
+<attribute name="HEIGHT" value="1.1mm" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="Texas Instruments" constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="DAC102S085CIMM/NOPB" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="926-DA102S085CIMMNPB" constant="no"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=926-DA102S085CIMMNPB" constant="no"/>
+<attribute name="MOUSER_TESTING_PART_NUMBER" value="" constant="no"/>
+<attribute name="MOUSER_TESTING_PRICE-STOCK" value="" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -9694,6 +9789,13 @@ Source: http://ecommas.tycoelectronics.com .. ENG_CD_640456_W.pdf</description>
 <part name="ICSP" library="con-amp" library_urn="urn:adsk.eagle:library:127" deviceset="MTA05-100" device=""/>
 <part name="P+5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="GND6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="IC2" library="DAC102S085CIMM_NOPB" deviceset="DAC102S085CIMM_NOPB" device=""/>
+<part name="P+6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
+<part name="GND7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C1206" package3d_urn="urn:adsk.eagle:package:23618/2"/>
+<part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C1206" package3d_urn="urn:adsk.eagle:package:23618/2"/>
+<part name="C5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C1206" package3d_urn="urn:adsk.eagle:package:23618/2"/>
+<part name="C6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C1206" package3d_urn="urn:adsk.eagle:package:23618/2"/>
 </parts>
 <sheets>
 <sheet>
@@ -9785,6 +9887,32 @@ Source: http://ecommas.tycoelectronics.com .. ENG_CD_640456_W.pdf</description>
 <instance part="GND6" gate="1" x="-96.52" y="170.18" smashed="yes">
 <attribute name="VALUE" x="-99.06" y="167.64" size="1.778" layer="96"/>
 </instance>
+<instance part="IC2" gate="G$1" x="231.14" y="241.3" smashed="yes">
+<attribute name="NAME" x="234.95" y="248.92" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="234.95" y="246.38" size="1.778" layer="96" align="center-left"/>
+</instance>
+<instance part="P+6" gate="1" x="228.6" y="246.38" smashed="yes">
+<attribute name="VALUE" x="231.14" y="248.92" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="GND7" gate="1" x="266.7" y="226.06" smashed="yes">
+<attribute name="VALUE" x="264.16" y="223.52" size="1.778" layer="96"/>
+</instance>
+<instance part="C3" gate="G$1" x="-27.94" y="193.04" smashed="yes">
+<attribute name="NAME" x="-26.416" y="193.421" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-26.416" y="188.341" size="1.778" layer="96"/>
+</instance>
+<instance part="C4" gate="G$1" x="-17.78" y="193.04" smashed="yes">
+<attribute name="NAME" x="-16.256" y="193.421" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-16.256" y="188.341" size="1.778" layer="96"/>
+</instance>
+<instance part="C5" gate="G$1" x="241.3" y="213.36" smashed="yes">
+<attribute name="NAME" x="242.824" y="213.741" size="1.778" layer="95"/>
+<attribute name="VALUE" x="242.824" y="208.661" size="1.778" layer="96"/>
+</instance>
+<instance part="C6" gate="G$1" x="251.46" y="213.36" smashed="yes">
+<attribute name="NAME" x="252.984" y="213.741" size="1.778" layer="95"/>
+<attribute name="VALUE" x="252.984" y="208.661" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -9853,6 +9981,12 @@ Source: http://ecommas.tycoelectronics.com .. ENG_CD_640456_W.pdf</description>
 <pinref part="GND6" gate="1" pin="GND"/>
 <wire x1="-96.52" y1="180.34" x2="-96.52" y2="172.72" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="GND"/>
+<wire x1="264.16" y1="231.14" x2="266.7" y2="231.14" width="0.1524" layer="91"/>
+<pinref part="GND7" gate="1" pin="GND"/>
+<wire x1="266.7" y1="231.14" x2="266.7" y2="228.6" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+5V" class="0">
 <segment>
@@ -9882,6 +10016,17 @@ Source: http://ecommas.tycoelectronics.com .. ENG_CD_640456_W.pdf</description>
 <pinref part="P+5" gate="1" pin="+5V"/>
 <wire x1="-96.52" y1="182.88" x2="-96.52" y2="187.96" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="VA"/>
+<wire x1="231.14" y1="241.3" x2="228.6" y2="241.3" width="0.1524" layer="91"/>
+<pinref part="P+6" gate="1" pin="+5V"/>
+<wire x1="228.6" y1="241.3" x2="228.6" y2="243.84" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="VREFIN"/>
+<wire x1="264.16" y1="233.68" x2="266.7" y2="233.68" width="0.1524" layer="91"/>
+<label x="266.7" y="233.68" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="CLKIN" class="0">
 <segment>
@@ -9896,7 +10041,7 @@ Source: http://ecommas.tycoelectronics.com .. ENG_CD_640456_W.pdf</description>
 <segment>
 <pinref part="IC1" gate="G$1" pin="RA7"/>
 <wire x1="-50.8" y1="228.6" x2="-53.34" y2="228.6" width="0.1524" layer="91"/>
-<label x="-58.42" y="228.6" size="1.778" layer="95"/>
+<label x="-60.96" y="228.6" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="CLKOUT" class="0">
@@ -9961,6 +10106,110 @@ Source: http://ecommas.tycoelectronics.com .. ENG_CD_640456_W.pdf</description>
 <pinref part="ICSP" gate="G$1" pin="1"/>
 <wire x1="-111.76" y1="175.26" x2="-109.22" y2="175.26" width="0.1524" layer="91"/>
 <label x="-109.22" y="175.26" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="PWM1" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="RC2"/>
+<wire x1="-50.8" y1="218.44" x2="-53.34" y2="218.44" width="0.1524" layer="91"/>
+<label x="-60.96" y="218.44" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="PWM2" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="RC1"/>
+<wire x1="-50.8" y1="220.98" x2="-53.34" y2="220.98" width="0.1524" layer="91"/>
+<label x="-60.96" y="220.98" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="PWM3" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="RE0"/>
+<wire x1="-50.8" y1="241.3" x2="-53.34" y2="241.3" width="0.1524" layer="91"/>
+<label x="-60.96" y="241.3" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="PWM4" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="RD1"/>
+<wire x1="-50.8" y1="210.82" x2="-53.34" y2="210.82" width="0.1524" layer="91"/>
+<label x="-60.96" y="210.82" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="PWM5" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="RE2"/>
+<wire x1="-50.8" y1="236.22" x2="-53.34" y2="236.22" width="0.1524" layer="91"/>
+<label x="-60.96" y="236.22" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SCK" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="RC3"/>
+<wire x1="-50.8" y1="215.9" x2="-53.34" y2="215.9" width="0.1524" layer="91"/>
+<label x="-58.42" y="215.9" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="SCLK"/>
+<wire x1="264.16" y1="241.3" x2="266.7" y2="241.3" width="0.1524" layer="91"/>
+<label x="266.7" y="241.3" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SDO" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="RC5"/>
+<wire x1="7.62" y1="218.44" x2="10.16" y2="218.44" width="0.1524" layer="91"/>
+<label x="10.16" y="218.44" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="DIN"/>
+<wire x1="264.16" y1="236.22" x2="266.7" y2="236.22" width="0.1524" layer="91"/>
+<label x="266.7" y="236.22" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SDI" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="RC4"/>
+<wire x1="7.62" y1="215.9" x2="10.16" y2="215.9" width="0.1524" layer="91"/>
+<label x="10.16" y="215.9" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="RD3"/>
+<wire x1="7.62" y1="213.36" x2="10.16" y2="213.36" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="RD2"/>
+<wire x1="7.62" y1="210.82" x2="10.16" y2="210.82" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="CS" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="RC0"/>
+<wire x1="-50.8" y1="223.52" x2="-53.34" y2="223.52" width="0.1524" layer="91"/>
+<label x="-58.42" y="223.52" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC2" gate="G$1" pin="!SYNC"/>
+<wire x1="264.16" y1="238.76" x2="266.7" y2="238.76" width="0.1524" layer="91"/>
+<label x="266.7" y="238.76" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="VOUT1" class="0">
+<segment>
+<pinref part="IC2" gate="G$1" pin="VOUTA"/>
+<wire x1="231.14" y1="238.76" x2="228.6" y2="238.76" width="0.1524" layer="91"/>
+<label x="220.98" y="238.76" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="VOUT2" class="0">
+<segment>
+<pinref part="IC2" gate="G$1" pin="VOUTB"/>
+<wire x1="231.14" y1="236.22" x2="228.6" y2="236.22" width="0.1524" layer="91"/>
+<label x="220.98" y="236.22" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
