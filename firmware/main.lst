@@ -1,0 +1,289 @@
+CCS PCM C Compiler, Version 5.015, 5967               24-ago.-22 22:46
+
+               Filename:   D:\Proyectos\output_controller\firmware\main.lst
+
+               ROM used:   203 words (1%)
+                           Largest free fragment is 2048
+               RAM used:   6 (1%) at main() level
+                           18 (2%) worst case
+               Stack used: 1 locations
+               Stack size: 16
+
+*
+0000:  MOVLP  00
+0001:  GOTO   018
+0002:  NOP
+.................... #include <main.h> 
+.................... #include <16F1939.h> 
+.................... //////////// Standard Header file for the PIC16F1939 device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F1939 
+....................  
+.................... #list 
+....................  
+.................... #device ADC=16 
+....................  
+.................... #FUSES NOWDT                    // no Watch Dog Timer 
+.................... #FUSES NOBROWNOUT               // no brownout reset 
+.................... #FUSES NOLVP                    // no low voltage programming, B3(PIC16) or B5(PIC18) used for I/O 
+....................  
+.................... #use delay(crystal=20000000)  // external crystal clock 
+0003:  MOVLW  20
+0004:  MOVWF  05
+0005:  MOVLW  02
+0006:  MOVWF  04
+0007:  MOVF   00,W
+0008:  BTFSC  03.2
+0009:  GOTO   017
+000A:  MOVLW  06
+000B:  MOVWF  78
+000C:  CLRF   77
+000D:  DECFSZ 77,F
+000E:  GOTO   00D
+000F:  DECFSZ 78,F
+0010:  GOTO   00C
+0011:  MOVLW  7B
+0012:  MOVWF  77
+0013:  DECFSZ 77,F
+0014:  GOTO   013
+0015:  DECFSZ 00,F
+0016:  GOTO   00A
+0017:  RETURN
+....................  
+.................... // I/O pin configurations 
+.................... #use STANDARD_IO( B ) 
+.................... #use FIXED_IO( B_outputs=PIN_B4,PIN_B5 ) 
+.................... #use STANDARD_IO( D ) 
+.................... #use FIXED_IO( D_outputs=PIN_D3 ) 
+....................  
+.................... // pin definitions 
+.................... #define USER_LED     PIN_B4 
+.................... #define COMMS_LED    PIN_B5 
+.................... #define CS_PIN       PIN_D3  
+....................  
+....................  
+.................... #use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8,stream=PORT1) 
+.................... #use SPI (MASTER, SPI1, BAUD=5000000, MODE=2, BITS=8, STREAM=SPI_1, MSB_FIRST) 
+....................  
+.................... void main() 
+0018:  MOVLB  03
+0019:  BSF    1F.3
+001A:  MOVLW  08
+001B:  MOVWF  1B
+001C:  MOVLW  02
+001D:  MOVWF  1C
+001E:  MOVLW  A6
+001F:  MOVWF  1E
+0020:  MOVLW  90
+0021:  MOVWF  1D
+0022:  MOVLB  04
+0023:  BCF    15.5
+0024:  MOVLW  40
+0025:  MOVWF  14
+0026:  MOVLW  0B
+0027:  MOVWF  12
+0028:  MOVLW  3A
+0029:  MOVWF  15
+002A:  MOVLB  01
+002B:  BCF    0E.5
+002C:  BSF    0E.4
+002D:  BCF    0E.3
+002E:  MOVLB  0F
+002F:  CLRF   11
+0030:  CLRF   12
+0031:  CLRF   18
+0032:  CLRF   19
+0033:  CLRF   1A
+0034:  MOVLB  03
+0035:  CLRF   0C
+0036:  CLRF   0D
+0037:  CLRF   0F
+0038:  CLRF   10
+0039:  MOVLB  02
+003A:  CLRF   12
+003B:  CLRF   11
+003C:  CLRF   14
+003D:  CLRF   13
+.................... { 
+....................    output_low(USER_LED); // start with led turn off 
+003E:  MOVLW  CF
+003F:  TRIS   6
+0040:  BCF    0D.4
+....................    output_low(COMMS_LED); // start with led turn off 
+0041:  TRIS   6
+0042:  BCF    0D.5
+....................    output_high(CS_PIN); // start in high to disable the slave 
+0043:  MOVLW  F7
+0044:  MOVLB  01
+0045:  MOVWF  0F
+0046:  MOVLB  02
+0047:  BSF    0F.3
+....................     
+....................    setup_timer_2(T2_DIV_BY_1,50,1);      //10,2 us overflow, 10,2 us interrupt 
+0048:  MOVLW  00
+0049:  MOVWF  78
+004A:  IORLW  04
+004B:  MOVLB  00
+004C:  MOVWF  1C
+004D:  MOVLW  32
+004E:  MOVWF  1B
+....................  
+....................    setup_ccp1(CCP_PWM|CCP_SHUTDOWN_AC_L|CCP_SHUTDOWN_BD_L); 
+004F:  MOVLB  01
+0050:  BCF    0E.2
+0051:  MOVLB  02
+0052:  BCF    0E.2
+0053:  MOVLW  0C
+0054:  MOVLB  05
+0055:  MOVWF  13
+0056:  CLRF   14
+0057:  CLRF   15
+0058:  BCF    1E.0
+0059:  BCF    1E.1
+005A:  MOVLW  01
+005B:  MOVWF  16
+....................    setup_ccp2(CCP_PWM|CCP_SHUTDOWN_AC_L|CCP_SHUTDOWN_BD_L); 
+005C:  MOVLB  02
+005D:  BCF    1D.0
+005E:  BCF    1D.4
+005F:  MOVLB  01
+0060:  BCF    0E.1
+0061:  MOVLB  02
+0062:  BCF    0E.1
+0063:  MOVLW  0C
+0064:  MOVLB  05
+0065:  MOVWF  1A
+0066:  CLRF   1B
+0067:  CLRF   1C
+0068:  BCF    1E.2
+0069:  BCF    1E.3
+006A:  MOVLW  01
+006B:  MOVWF  1D
+....................    setup_ccp3(CCP_PWM|CCP_SHUTDOWN_AC_L|CCP_SHUTDOWN_BD_L); 
+006C:  MOVLB  02
+006D:  BCF    1D.6
+006E:  MOVLB  01
+006F:  BCF    10.0
+0070:  MOVLB  02
+0071:  BCF    10.0
+0072:  MOVLW  0C
+0073:  MOVLB  06
+0074:  MOVWF  13
+0075:  CLRF   14
+0076:  CLRF   15
+0077:  MOVLB  05
+0078:  BCF    1E.4
+0079:  BCF    1E.5
+007A:  MOVLW  01
+007B:  MOVLB  06
+007C:  MOVWF  16
+....................    setup_ccp4(CCP_PWM); 
+007D:  MOVLW  F7
+007E:  MOVLB  01
+007F:  MOVWF  0F
+0080:  MOVLB  02
+0081:  BCF    0F.1
+0082:  MOVLW  0C
+0083:  MOVLB  06
+0084:  MOVWF  1A
+0085:  MOVLB  05
+0086:  BCF    1E.6
+0087:  BCF    1E.7
+....................    setup_ccp5(CCP_PWM); 
+0088:  MOVLB  01
+0089:  BCF    10.2
+008A:  MOVLB  02
+008B:  BCF    10.2
+008C:  MOVLB  06
+008D:  MOVWF  1E
+008E:  MOVLB  05
+008F:  BCF    1F.0
+0090:  BCF    1F.1
+....................    set_pwm1_duty((int16)0); 
+0091:  CLRF   11
+0092:  MOVF   13,W
+0093:  ANDLW  CF
+0094:  MOVWF  13
+....................    set_pwm2_duty((int16)0); 
+0095:  CLRF   18
+0096:  MOVF   1A,W
+0097:  ANDLW  CF
+0098:  MOVWF  1A
+....................    set_pwm3_duty((int16)0); 
+0099:  MOVLB  06
+009A:  CLRF   11
+009B:  MOVF   13,W
+009C:  ANDLW  CF
+009D:  MOVWF  13
+....................    set_pwm4_duty((int16)0); 
+009E:  CLRF   18
+009F:  MOVF   1A,W
+00A0:  ANDLW  CF
+00A1:  MOVWF  1A
+....................    set_pwm5_duty((int16)0); 
+00A2:  CLRF   1C
+00A3:  MOVF   1E,W
+00A4:  ANDLW  CF
+00A5:  MOVWF  1E
+....................  
+....................    while(TRUE) 
+....................    { 
+....................       //TODO: User Code 
+....................       output_low(USER_LED); 
+00A6:  MOVLW  CF
+00A7:  TRIS   6
+00A8:  MOVLB  02
+00A9:  BCF    0D.4
+....................       output_high(COMMS_LED); 
+00AA:  TRIS   6
+00AB:  BSF    0D.5
+....................       delay_ms(500); 
+00AC:  MOVLW  02
+00AD:  MOVLB  00
+00AE:  MOVWF  21
+00AF:  MOVLW  FA
+00B0:  MOVWF  22
+00B1:  CALL   003
+00B2:  DECFSZ 21,F
+00B3:  GOTO   0AF
+....................       output_high(USER_LED); 
+00B4:  MOVLW  CF
+00B5:  TRIS   6
+00B6:  MOVLB  02
+00B7:  BSF    0D.4
+....................       output_low(COMMS_LED); 
+00B8:  TRIS   6
+00B9:  BCF    0D.5
+....................       delay_ms(500); 
+00BA:  MOVLW  02
+00BB:  MOVLB  00
+00BC:  MOVWF  21
+00BD:  MOVLW  FA
+00BE:  MOVWF  22
+00BF:  CALL   003
+00C0:  DECFSZ 21,F
+00C1:  GOTO   0BD
+....................       output_toggle(CS_PIN); 
+00C2:  MOVLW  F7
+00C3:  MOVLB  01
+00C4:  MOVWF  0F
+00C5:  MOVLW  08
+00C6:  MOVLB  02
+00C7:  XORWF  0F,F
+00C8:  MOVLB  06
+00C9:  GOTO   0A6
+....................    } 
+.................... } 
+00CA:  SLEEP
+
+Configuration Fuses:
+   Word  1: 39C2   HS NOWDT PUT MCLR NOPROTECT NOCPD NOBROWNOUT NOCLKOUT IESO FCMEN
+   Word  2: 1EFF   NOWRT NOVCAP PLL_SW STVREN BORV19 NODEBUG NOLVP

@@ -24089,14 +24089,14 @@ W = angled&lt;p&gt;
 </net>
 <net name="CS" class="0">
 <segment>
-<pinref part="IC1" gate="G$1" pin="RC0"/>
-<wire x1="-30.48" y1="-10.16" x2="-33.02" y2="-10.16" width="0.1524" layer="91"/>
-<label x="-38.1" y="-10.16" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="IC2" gate="G$1" pin="!SYNC"/>
 <wire x1="134.62" y1="68.58" x2="137.16" y2="68.58" width="0.1524" layer="91"/>
 <label x="137.16" y="68.58" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="RD3"/>
+<wire x1="27.94" y1="-20.32" x2="30.48" y2="-20.32" width="0.1524" layer="91"/>
+<label x="30.48" y="-20.32" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="VOUT1" class="0">

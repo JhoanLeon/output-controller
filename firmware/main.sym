@@ -1,0 +1,73 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @READ_PACKED_MEMORY.P2
+004-005 @WRITE_PROGRAM_MEMORY8.P3
+004-005 @WRITE_PACKED_MEMORY.P4
+006-007 @READ_PACKED_MEMORY.P1
+006-007 @WRITE_PACKED_MEMORY.P2
+021     @SPI_XFER_1_8.P1
+021     main.@SCRATCH1
+022     @delay_ms1.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+111.6   C1OUT
+113.6   C2OUT
+191-192 @READ_PROGRAM_MEMORY8.P1
+191-192 @WRITE_PROGRAM_MEMORY8.P2
+291     CCP_1
+291     CCP_1_LOW
+292     CCP_1_HIGH
+298     CCP_2
+298     CCP_2_LOW
+299     CCP_2_HIGH
+311     CCP_3
+311     CCP_3_LOW
+312     CCP_3_HIGH
+318     CCP_4
+318     CCP_4_LOW
+319     CCP_4_HIGH
+31C     CCP_5
+31C     CCP_5_LOW
+31D     CCP_5_HIGH
+
+ROM Allocation:
+000003  @delay_ms1
+000018  main
+000018  @cinit1
+00003E  @cinit2
+
+Project Directory:
+    D:\Proyectos\output_controller\firmware\
+
+Project Files:
+    main.c                                                  [24-ago.-22 22:46  CRC=AB84A353]
+    main.h                                                  [24-ago.-22 22:45  CRC=A94BECA2]
+    C:\Program Files\PICC\Devices\16F1939.h                 [12-nov.-13 14:35  CRC=C59C8C8D]
+
+Source signature=E009A90F
+
+Units:
+    main (main)
+
+Compiler Settings:
+    Processor:      PIC16F1939
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Enhanced 16:    Yes
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA
