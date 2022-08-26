@@ -29,17 +29,7 @@ enum UART_STATES
    ST_MSG = 2
 } uart_state;
 
-// UART commands identifiers
-char CMD_1[10] = "ANOUT";
-char CMD_1_1[10] = "anout";
-char CMD_2[10] = "PWMPERIOD";
-char CMD_2_2[10] = "pwmperiod";
-char CMD_3[10] = "PWMDUTY";
-char CMD_3_3[10] = "pwmduty";
-char CMD_4[10] = "ABOUT";
-char CMD_4_4[10] = "about";
-char CMD_5[10] = "HELP";
-char CMD_5_5[10] = "help";
+char CMD1[10] = "ANOUT";
 
 // Flags to manage events
 volatile int8 NEW_MSG_RECEIVED_FLAG = false;
@@ -241,31 +231,10 @@ void main()
             }
             
             // select between commands
-            if ( (strcmp(identifier_msg, CMD_1) == 0) || (strcmp(identifier_msg, CMD_1_1) == 0) )
-            {
-               printf(CMD_1);
-            }
-            else if ( (strcmp(identifier_msg, CMD_2) == 0) || (strcmp(identifier_msg, CMD_2_2) == 0) )
-            {
-               printf(CMD_2);
-            }
-            else if ( (strcmp(identifier_msg, CMD_3) == 0) || (strcmp(identifier_msg, CMD_3_3) == 0) )
-            {
-               printf(CMD_3);
-            }
-            else if ( (strcmp(identifier_msg, CMD_4) == 0) || (strcmp(identifier_msg, CMD_4_4) == 0) )
-            {
-               printf(CMD_4);
-            }
-            else if ( (strcmp(identifier_msg, CMD_5) == 0) || (strcmp(identifier_msg, CMD_5_5) == 0) )
-            {
-               printf(CMD_5);
-            }
-            else
-            {
-               // the identifier of the command is not recognized
-               printf("ERROR\r\n");
-            }
+            int compare = strcmp(identifier_msg, CMD1);
+            
+            putc(compare);
+            printf("\r\n");
             
             // print the message received
             for (int8 k = 0; k < index_rx_msg; k++)
@@ -283,7 +252,7 @@ void main()
          }
          else
          {
-            // the structure of the command is not correct
+            // error
             printf("ERROR\r\n");
          }
          
@@ -294,7 +263,7 @@ void main()
          }
          index_rx_msg = 0; // reset the buffer index
          
-         for (j = 0; j < index_identifier_msg; j++)
+         for (j = 0; j < index_rx_msg; j++)
          {
             identifier_msg[j] = 0; 
          }

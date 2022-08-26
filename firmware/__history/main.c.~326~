@@ -31,15 +31,10 @@ enum UART_STATES
 
 // UART commands identifiers
 char CMD_1[10] = "ANOUT";
-char CMD_1_1[10] = "anout";
 char CMD_2[10] = "PWMPERIOD";
-char CMD_2_2[10] = "pwmperiod";
 char CMD_3[10] = "PWMDUTY";
-char CMD_3_3[10] = "pwmduty";
 char CMD_4[10] = "ABOUT";
-char CMD_4_4[10] = "about";
 char CMD_5[10] = "HELP";
-char CMD_5_5[10] = "help";
 
 // Flags to manage events
 volatile int8 NEW_MSG_RECEIVED_FLAG = false;
@@ -241,29 +236,13 @@ void main()
             }
             
             // select between commands
-            if ( (strcmp(identifier_msg, CMD_1) == 0) || (strcmp(identifier_msg, CMD_1_1) == 0) )
+            if (strcmp(identifier_msg, CMD_1) == 0)
             {
                printf(CMD_1);
             }
-            else if ( (strcmp(identifier_msg, CMD_2) == 0) || (strcmp(identifier_msg, CMD_2_2) == 0) )
-            {
-               printf(CMD_2);
-            }
-            else if ( (strcmp(identifier_msg, CMD_3) == 0) || (strcmp(identifier_msg, CMD_3_3) == 0) )
-            {
-               printf(CMD_3);
-            }
-            else if ( (strcmp(identifier_msg, CMD_4) == 0) || (strcmp(identifier_msg, CMD_4_4) == 0) )
-            {
-               printf(CMD_4);
-            }
-            else if ( (strcmp(identifier_msg, CMD_5) == 0) || (strcmp(identifier_msg, CMD_5_5) == 0) )
-            {
-               printf(CMD_5);
-            }
             else
             {
-               // the identifier of the command is not recognized
+               // do something
                printf("ERROR\r\n");
             }
             
@@ -283,7 +262,7 @@ void main()
          }
          else
          {
-            // the structure of the command is not correct
+            // error
             printf("ERROR\r\n");
          }
          

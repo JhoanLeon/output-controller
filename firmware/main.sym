@@ -1,40 +1,81 @@
-004-005 @WRITE_PROGRAM_MEMORY8.P1
-004-005 @READ_PACKED_MEMORY.P2
-004-005 @WRITE_PACKED_MEMORY.P3
-004-005 @READ_PROGRAM_MEMORY8.P4
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PACKED_MEMORY.P2
+004-005 @WRITE_PROGRAM_MEMORY8.P3
+004-005 @READ_PACKED_MEMORY.P4
 006-007 @WRITE_PACKED_MEMORY.P1
 006-007 @READ_PACKED_MEMORY.P2
 020     @INTERRUPT_AREA
 021     @INTERRUPT_AREA
 022     @INTERRUPT_AREA
 023     @INTERRUPT_AREA
-024-025 pwm_counter
-026-027 desired_pwm_period
-028-029 desired_dutycycle_pwm1
-02A-02B desired_dutycycle_pwm2
-02C-02D desired_dutycycle_pwm3
-02E-02F desired_dutycycle_pwm4
-030     @SPI_XFER_1_8.P1
-030-031 @DIV1616.P2
-030     timer_2_timebase.@SCRATCH1
-031     timer_2_timebase.@SCRATCH2
-032-033 @DIV1616.P1
-032-033 @MUL1616.P2
-034-035 @MUL1616.P1
-034     @DIV1616.@SCRATCH1
-036     @MUL1616.@SCRATCH1
+024     @INTERRUPT_AREA
+025     @INTERRUPT_AREA
+026     @INTERRUPT_AREA
+027     @INTERRUPT_AREA
+028     @INTERRUPT_AREA
+029-02A strtok.save
+02B-02C pwm_counter
+02D-02E desired_pwm_period
+02F-030 desired_dutycycle_pwm1
+031-032 desired_dutycycle_pwm2
+033-034 desired_dutycycle_pwm3
+035-036 desired_dutycycle_pwm4
+037     char_received
+038-04B rx_msg
+04C     index_rx_msg
+04D-056 identifier_msg
+057     index_identifier_msg
+058     index_reader
+059     uart_state
+05A-063 CMD_1
+064-06D CMD_1_1
+06E-06F,0A0-0A7 CMD_2
+070     NEW_MSG_RECEIVED_FLAG
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
 079     @SCRATCH
 07A     @SCRATCH
 07F     @INTERRUPT_AREA
+0A8-0B1 CMD_2_2
+0B2-0BB CMD_3
+0BC-0C5 CMD_3_3
+0C6-0CF CMD_4
+0D0-0D9 CMD_4_4
+0DA-0E3 CMD_5
+0E4-0ED CMD_5_5
+0EE     @SPI_XFER_1_8.P1
+0EE     MAIN.i
+0EF     MAIN.k
 0FF     @INTERRUPT_AREA
 111.6   C1OUT
 113.6   C2OUT
+120     MAIN.y
+121     MAIN.j
+122-123 strcmp.s1
+122     MAIN.@SCRATCH1
+122     @PSTRINGR_9600_118_119.@SCRATCH1
+123     MAIN.@SCRATCH2
+123     @PSTRINGR_9600_118_119.@SCRATCH2
+124-125 strcmp.s2
+124     MAIN.@SCRATCH3
+126     strcmp.@SCRATCH1
+127-128 @DIV1616.P1
+127     ISR_Timer_2.@SCRATCH1
+127     ISR_Receive_UART.@SCRATCH1
+127     @PSTRINGC7_9600_118_119.@SCRATCH1
+128     ISR_Timer_2.@SCRATCH2
+128     ISR_Receive_UART.@SCRATCH2
+128     @PSTRINGC7_9600_118_119.@SCRATCH2
+129-12A @DIV1616.P1
+129-12A @MUL1616.P2
+129     @PSTRINGC7_9600_118_119.@SCRATCH3
+12B-12C @MUL1616.P1
+12B     @DIV1616.@SCRATCH1
+12D     @MUL1616.@SCRATCH1
 17F     @INTERRUPT_AREA
-191-192 @WRITE_PROGRAM_MEMORY8.P1
-191-192 @READ_PROGRAM_MEMORY8.P2
+191-192 @READ_PROGRAM_MEMORY8.P1
+191-192 @WRITE_PROGRAM_MEMORY8.P2
 1FF     @INTERRUPT_AREA
 27F     @INTERRUPT_AREA
 291     CCP_1_LOW
@@ -47,8 +88,8 @@
 311     CCP_3_LOW
 311     CCP_3
 312     CCP_3_HIGH
-318     CCP_4_LOW
 318     CCP_4
+318     CCP_4_LOW
 319     CCP_4_HIGH
 31C     CCP_5_LOW
 31C     CCP_5
@@ -81,22 +122,37 @@ F7F     @INTERRUPT_AREA
 FFF     @INTERRUPT_AREA
 
 ROM Allocation:
-000021  @DIV1616
-000046  @MUL1616
-00005B  timer_2_timebase
-000126  @cinit1
-000126  MAIN
-00015E  @cinit2
+00004A  @DIV1616
+000071  @MUL1616
+000088  ISR_Timer_2
+000174  @PSTRINGC7_9600_118_119
+0001C6  ISR_Receive_UART
+00021E  @const824.call
+000222  @const826.call
+000226  @const827.call
+00022A  @const831.call
+00022E  @const832.call
+000231  @const835.call
+000235  @const840.call
+000239  strcmp
+00027A  @PSTRINGR_9600_118_119
+000291  @PUTCHARI_BIU_1
+000297  MAIN
+000297  @cinit1
+0002D5  @cinit2
 
 Project Directory:
     D:\Proyectos\output_controller\firmware\
 
 Project Files:
-    main.c                                                  [26-ago.-22 00:11  CRC=BE879221]
+    main.c                                                  [26-ago.-22 12:56  CRC=E04A7FD9]
     main.h                                                  [25-ago.-22 23:21  CRC=1144C15D]
     C:\Program Files\PICC\Devices\16F1939.h                 [12-nov.-13 14:35  CRC=C59C8C8D]
+    C:\Program Files\PICC\Drivers\string.h                  [14-jul.-11 10:13  CRC=23EDEC8F]
+    C:\Program Files\PICC\Drivers\stddef.h                  [16-jul.-10 09:27  CRC=897CEC6C]
+    C:\Program Files\PICC\Drivers\ctype.h                   [03-ene.-08 13:55  CRC=2D1F019F]
 
-Source signature=5B056C98
+Source signature=BED4A9FC
 
 Units:
     main (main)

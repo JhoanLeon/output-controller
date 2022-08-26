@@ -241,23 +241,23 @@ void main()
             }
             
             // select between commands
-            if ( (strcmp(identifier_msg, CMD_1) == 0) || (strcmp(identifier_msg, CMD_1_1) == 0) )
+            if ( (strcmp(identifier_msg, CMD_1) == 0) || (strcmp(identifier_msg, CMD_1_1) == 0))
             {
                printf(CMD_1);
             }
-            else if ( (strcmp(identifier_msg, CMD_2) == 0) || (strcmp(identifier_msg, CMD_2_2) == 0) )
+            else if (strcmp(identifier_msg, CMD_2) == 0)
             {
                printf(CMD_2);
             }
-            else if ( (strcmp(identifier_msg, CMD_3) == 0) || (strcmp(identifier_msg, CMD_3_3) == 0) )
+            else if (strcmp(identifier_msg, CMD_3) == 0)
             {
                printf(CMD_3);
             }
-            else if ( (strcmp(identifier_msg, CMD_4) == 0) || (strcmp(identifier_msg, CMD_4_4) == 0) )
+            else if (strcmp(identifier_msg, CMD_4) == 0)
             {
                printf(CMD_4);
             }
-            else if ( (strcmp(identifier_msg, CMD_5) == 0) || (strcmp(identifier_msg, CMD_5_5) == 0) )
+            else if (strcmp(identifier_msg, CMD_5) == 0)
             {
                printf(CMD_5);
             }
