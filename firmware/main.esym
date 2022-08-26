@@ -1,8 +1,8 @@
-D G "CS_PIN" 1 19 "PIN_D3"
-D G "__PCM__" 0 37 ""5.015""
-D G "__DEVICE__" 0 37 "1939"
-D G "__DATE__" 0 37 ""24-ago.-22""
-D G "__TIME__" 0 37 ""22:46:32"" "Standard Header file for the PIC16F1939 device ////////////////"
+D G "PWM4_PIN" 1 24 "PIN_D1"
+D G "__PCM__" 0 111 ""5.015""
+D G "__DEVICE__" 0 111 "1939"
+D G "__DATE__" 0 111 ""26-ago.-22""
+D G "__TIME__" 0 111 ""00:12:00"" "Standard Header file for the PIC16F1939 device ////////////////"
 c L "set_tris_a" 2 3 6 "FUNCTION"
 v L "value" 2 40 "int8" `54 
 f B "set_tris_a" 2 40 "void(int8 value)" `53 
@@ -1071,12 +1071,40 @@ d G "INT_RB7_H2L" 2 1012 "0x21800B08"
 D G "USER_LED" 1 17 "PIN_B4"
 D G "COMMS_LED" 1 18 "PIN_B5"
 D G "CS_PIN" 1 19 "PIN_D3"
-F G "main" 0 6 "void()" `692 
-C L "main" 0 7 1 "FUNCTION"
-C L "main" 0 7 1 "FUNCTION"
-C L "main" 0 7 1 "FUNCTION"
-C L "main" 0 7 1 "FUNCTION"
-C L "main" 0 7 1 "FUNCTION"
+D G "PWM1_PIN" 1 21 "PIN_C2"
+D G "PWM2_PIN" 1 22 "PIN_C1"
+D G "PWM3_PIN" 1 23 "PIN_E0"
+D G "PWM4_PIN" 1 24 "PIN_D1"
+V G "pwm_counter" 0 6 "int16" `692 
+V G "desired_pwm_period" 0 7 "int16" `693 
+C L "jump_to_irs" 0 7 1 "FUNCTION"
+V G "desired_dutycycle_pwm1" 0 8 "int16" `694 
+C L "jump_to_irs" 0 7 1 "FUNCTION"
+V G "desired_dutycycle_pwm2" 0 9 "int16" `695 
+C L "jump_to_irs" 0 7 1 "FUNCTION"
+V G "desired_dutycycle_pwm3" 0 10 "int16" `696 
+C L "jump_to_irs" 0 7 1 "FUNCTION"
+V G "desired_dutycycle_pwm4" 0 11 "int16" `697 
+C L "jump_to_irs" 0 7 1 "FUNCTION"
+C L "jump_to_irs" 0 15 1 "*"
+F G "timer_2_timebase" 0 19 "void()" `698 
+C L "timer_2_timebase" 0 15 1 "FUNCTION"
+C L "timer_2_timebase" 0 15 1 "FUNCTION"
+C L "timer_2_timebase" 0 15 1 "FUNCTION"
+C L "timer_2_timebase" 0 15 1 "FUNCTION"
+C L "timer_2_timebase" 0 15 1 "FUNCTION"
+C L "timer_2_timebase" 0 15 1 "FUNCTION"
+C L "timer_2_timebase" 0 15 1 "FUNCTION"
+C L "timer_2_timebase" 0 15 1 "FUNCTION"
+F G "MAIN" 0 78 "void()" `705  "Set initial state of IO pins"
+C L "MAIN" 0 15 1 "FUNCTION"
+C L "MAIN" 0 15 1 "FUNCTION"
+C L "MAIN" 0 15 2 "FUNCTION"
+C L "MAIN" 0 15 1 "FUNCTION"
+C L "MAIN" 0 15 1 "FUNCTION"
+C L "MAIN" 0 15 1 "FUNCTION"
+C L "MAIN" 0 15 1 "FUNCTION"
+C L "MAIN" 0 15 1 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0

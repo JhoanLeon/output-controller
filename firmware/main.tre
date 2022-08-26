@@ -1,5 +1,12 @@
 ÀÄmain
-   ÀÄmain  0/179  Ram=1
-      ÃÄ@cinit1  (Inline)  Ram=0
-      ÃÄ@delay_ms1  0/21  Ram=1
-      ÀÄ@delay_ms1  0/21  Ram=1
+   ÃÄMAIN  0/96  Ram=0
+   ³  ÀÄ@cinit1  (Inline)  Ram=0
+   ÀÄtimer_2_timebase  0/203  Ram=2
+      ÃÄ@DIV1616  0/37  Ram=5
+      ÃÄ@MUL1616  0/21  Ram=5
+      ÃÄ@DIV1616  0/37  Ram=5
+      ÃÄ@MUL1616  0/21  Ram=5
+      ÃÄ@DIV1616  0/37  Ram=5
+      ÃÄ@MUL1616  0/21  Ram=5
+      ÃÄ@DIV1616  0/37  Ram=5
+      ÀÄ@MUL1616  0/21  Ram=5

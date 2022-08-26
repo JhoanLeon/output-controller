@@ -17,7 +17,6 @@
 #define USER_LED     PIN_B4
 #define COMMS_LED    PIN_B5
 #define CS_PIN       PIN_D3 
-
 #define PWM1_PIN     PIN_C2
 #define PWM2_PIN     PIN_C1
 #define PWM3_PIN     PIN_E0

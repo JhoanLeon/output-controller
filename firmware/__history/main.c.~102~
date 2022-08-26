@@ -17,8 +17,6 @@ unsigned int16 desired_dutycycle_pwm4 = 100; // 0-100%
 */
 void timer_2_timebase(void)
 {
-   output_toggle(CS_PIN);
-   
    // set period
    if (pwm_counter == desired_pwm_period)
    {
@@ -105,5 +103,9 @@ void main()
 //!      output_low(COMMS_LED);
 //!      delay_ms(500);
 //!      output_toggle(CS_PIN);
+      output_high(USER_LED);
+      delay_ms(500);
+      output_low(USER_LED);
+      delay_ms(500);
    }
 }
