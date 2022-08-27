@@ -646,7 +646,6 @@ void main()
    uart_state = ST_WAIT;
    printf("READY\r\n");
 
-   // Loop to manage UART communications/messages
    while(TRUE)
    {
       if (NEW_MSG_RECEIVED_FLAG == true)

@@ -1,5 +1,5 @@
->>> Warning 216 "main.c" Line 690(1,2): Interrupts disabled during call to prevent re-entrancy:  (@MUL1616)
->>> Warning 216 "main.c" Line 690(1,2): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGC7_9600_118_119)
-      Memory usage:   ROM=21%      RAM=17% - 21%
+>>> Warning 216 "main.c" Line 735(1,2): Interrupts disabled during call to prevent re-entrancy:  (@MUL1616)
+>>> Warning 216 "main.c" Line 735(1,2): Interrupts disabled during call to prevent re-entrancy:  (@PSTRINGC7_9600_118_119)
+      Memory usage:   ROM=22%      RAM=18% - 21%
       0 Errors,  2 Warnings.
 Build Successful.

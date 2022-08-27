@@ -635,7 +635,7 @@ void main()
    output_high(CS_PIN); // to finish spi transaction
    
    // Configure TIM2 to PWM timebase
-   setup_timer_2(T2_DIV_BY_1,75,1); // 15,2 us overflow, 15,2 us interrupt
+   setup_timer_2(T2_DIV_BY_1,75,1);      // 15,2 us overflow, 15,2 us interrupt
    
    // Configure interrupts
    enable_interrupts(INT_TIMER2); // timer 2 interrupt
@@ -646,7 +646,6 @@ void main()
    uart_state = ST_WAIT;
    printf("READY\r\n");
 
-   // Loop to manage UART communications/messages
    while(TRUE)
    {
       if (NEW_MSG_RECEIVED_FLAG == true)

@@ -8,19 +8,19 @@
 #use SPI (MASTER, SPI1, BAUD=5000000, MODE=2, BITS=8, STREAM=SPI_1, MSB_FIRST)
 
 // Define variables
-unsigned int16 desired_anout1_value = 0x00; // 0x0000 - 0x03FF
-unsigned int16 desired_anout2_value = 0x00; // 0x0000 - 0x03FF
+unsigned int16 desired_anout1_value = 500; // 0x0000 - 0x03FF
+unsigned int16 desired_anout2_value = 800; // 0x0000 - 0x03FF
 
 unsigned int8 spi_dac_command_H = 0x00; //  CH1:1Y(0001-Y) / CH2:5Y(0101-Y)
 unsigned int8 spi_dac_command_L = 0x00; //  YY(Y-HH00)
 
 unsigned int16 pwm_counter = 0; // counter of timer2 timebase
-unsigned int16 desired_pwm_period = 1316; // 0.02s - 50Hz
+unsigned int16 desired_pwm_period = 6579; // 100ms
 
-unsigned int16 desired_dutycycle_pwm1 = 0; // 0-100%
-unsigned int16 desired_dutycycle_pwm2 = 0; // 0-100%
-unsigned int16 desired_dutycycle_pwm3 = 0; // 0-100%
-unsigned int16 desired_dutycycle_pwm4 = 0; // 0-100%
+unsigned int16 desired_dutycycle_pwm1 = 25; // 0-100%
+unsigned int16 desired_dutycycle_pwm2 = 50; // 0-100%
+unsigned int16 desired_dutycycle_pwm3 = 75; // 0-100%
+unsigned int16 desired_dutycycle_pwm4 = 100; // 0-100%
 
 // Variables to UART communications
 unsigned char char_received = 0; // variable to save chars received by UART
@@ -170,7 +170,7 @@ void ISR_Receive_UART(void)
       
       case ST_MSG:
       {
-         if (char_received == '\n')
+         if (char_received == '\r') ///////// CHANGE THISSSSSS TO \n TO GET FINAL \r\n
          {
             // end of message flag
             NEW_MSG_RECEIVED_FLAG = true;
@@ -294,8 +294,8 @@ void Update_DAC_Output(int channel, unsigned int16 value)
    else // channel 2
    {
       // to channel 2
-      spi_dac_command_H = 0x50 | (value >> 12)&0x0F; //  CH1:1Y(0001-Y) / CH2:5Y(0101-Y)
-      spi_dac_command_L = (value << 2) & 0xFF; //  YY(Y-HH00)
+      spi_dac_command_H = 0x50; //  CH1:1Y(0001-Y) / CH2:5Y(0101-Y)
+      spi_dac_command_L = 0x00; //  YY(Y-HH00)
       spi_write(spi_dac_command_H);
       spi_write(spi_dac_command_H);
    }
@@ -344,7 +344,7 @@ void Manage_ANOUT_Command(void)
       desired_anout_channel = rx_msg[index_reader+1];
       
       // read the value
-      for (i = index_reader+3; i < index_rx_msg; i++)
+      for (i = index_reader+3; i <= index_rx_msg; i++) ///////// CHANGE THISSSSSS TO JUST < TO GET FINAL \r\n
       {
          // add character to value buffer
          value_msg[index_value_msg] = rx_msg[i];
@@ -362,12 +362,10 @@ void Manage_ANOUT_Command(void)
       if (desired_anout_channel == '1')
       {
          desired_anout1_value = temp_desired_anout; // assig final value of ANOUT
-         Update_DAC_Output(1, desired_anout1_value);
       }
       else if (desired_anout_channel == '2')
       {
          desired_anout2_value = temp_desired_anout; // assig final value of ANOUT
-         Update_DAC_Output(2, desired_anout2_value);
       }
       else
       {
@@ -406,7 +404,7 @@ void Manage_PWMPERIOD_Command(void)
    else if (rx_msg[index_reader] == '=') // case 1 of PWMPERIOD command
    {
       // read the value
-      for (i = index_reader+1; i < index_rx_msg; i++)
+      for (i = index_reader+1; i <= index_rx_msg; i++) ///////// CHANGE THISSSSSS TO JUST < TO GET FINAL \r\n
       {
          // add character to value buffer
          value_msg[index_value_msg] = rx_msg[i];
@@ -480,7 +478,7 @@ void Manage_PWMDUTY_Command(void)
       desired_pwm_channel = rx_msg[index_reader+1];
       
       // read the value
-      for (i = index_reader+3; i < index_rx_msg; i++)
+      for (i = index_reader+3; i <= index_rx_msg; i++) ///////// CHANGE THISSSSSS TO JUST < TO GET FINAL \r\n
       {
          // add character to value buffer
          value_msg[index_value_msg] = rx_msg[i];
@@ -635,7 +633,7 @@ void main()
    output_high(CS_PIN); // to finish spi transaction
    
    // Configure TIM2 to PWM timebase
-   setup_timer_2(T2_DIV_BY_1,75,1); // 15,2 us overflow, 15,2 us interrupt
+   setup_timer_2(T2_DIV_BY_1,75,1);      // 15,2 us overflow, 15,2 us interrupt
    
    // Configure interrupts
    enable_interrupts(INT_TIMER2); // timer 2 interrupt
@@ -646,7 +644,6 @@ void main()
    uart_state = ST_WAIT;
    printf("READY\r\n");
 
-   // Loop to manage UART communications/messages
    while(TRUE)
    {
       if (NEW_MSG_RECEIVED_FLAG == true)
