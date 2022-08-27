@@ -445,23 +445,20 @@ void main()
                }
                else if ((rx_msg[index_reader] == '=') && (rx_msg[index_reader+2] == '?')) // case 3 of PWMDUTY command
                {
-                  // read the channel
-                  desired_pwm_channel = rx_msg[index_reader+1];
-                  
                   // answer the command
-                  if (desired_pwm_channel == '1')
+                  if (rx_msg[index_reader+1] == '1')
                   {
                      printf("+PWMDUTY1:%X%X\r\n", (int)(desired_dutycycle_pwm1>>8), (int)(desired_dutycycle_pwm1));
                   }
-                  else if (desired_pwm_channel == '2')
+                  else if (rx_msg[index_reader+1] == '2')
                   {
                      printf("+PWMDUTY2:%X%X\r\n", (int)(desired_dutycycle_pwm2>>8), (int)(desired_dutycycle_pwm2));
                   }
-                  else if (desired_pwm_channel == '3')
+                  else if (rx_msg[index_reader+1] == '3')
                   {
                      printf("+PWMDUTY3:%X%X\r\n", (int)(desired_dutycycle_pwm3>>8), (int)(desired_dutycycle_pwm3));
                   }
-                  else if (desired_pwm_channel == '4')
+                  else if (rx_msg[index_reader+1] == '4')
                   {
                      printf("+PWMDUTY4:%X%X\r\n", (int)(desired_dutycycle_pwm4>>8), (int)(desired_dutycycle_pwm4));
                   }
@@ -477,50 +474,19 @@ void main()
                   desired_pwm_channel = rx_msg[index_reader+1];
                   
                   // read the value
-                  for (i = index_reader+3; i <= index_rx_msg; i++) ///////// CHANGE THISSSSSS TO JUST < TO GET FINAL \r\n
+                  for (i = index_reader+1; i <= index_rx_msg; i++) ///////// CHANGE THISSSSSS TO JUST < TO GET FINAL \r\n
                   {
                      // add character to value buffer
                      value_msg[index_value_msg] = rx_msg[i];
                      index_value_msg += 1;
                   }
-                  
-                  // end of value (read buffer to get the number)
-                  unsigned int16 temp_desired_pwm_dutycyle = 0;
-                  for (i = 0; i < index_value_msg; i++)
-                  {
-                     temp_desired_pwm_dutycyle += char_hex_to_dec(value_msg[i],index_value_msg-2-i);
-                  }
-                  
-                  // answer the command
-                  if (desired_pwm_channel == '1')
-                  {
-                     desired_dutycycle_pwm1 = temp_desired_pwm_dutycyle; // assig final value of PWM dutycycle
-                  }
-                  else if (desired_pwm_channel == '2')
-                  {
-                     desired_dutycycle_pwm2 = temp_desired_pwm_dutycyle; // assig final value of PWM dutycycle
-                  }
-                  else if (desired_pwm_channel == '3')
-                  {
-                     desired_dutycycle_pwm3 = temp_desired_pwm_dutycyle; // assig final value of PWM dutycycle
-                  }
-                  else if (desired_pwm_channel == '4')
-                  {
-                     desired_dutycycle_pwm4 = temp_desired_pwm_dutycyle; // assig final value of PWM dutycycle
-                  }
-                  else
-                  {
-                     // the command is not recognized
-                     printf("ERROR\r\n");
-                  }
-                  
-                  printf("OK\r\n");
                }
                else
                {
                   // the command is not recognized
                   printf("ERROR\r\n");
                }
+               
             }
             
             ////// ABOUT Command //////

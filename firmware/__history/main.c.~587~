@@ -521,6 +521,7 @@ void main()
                   // the command is not recognized
                   printf("ERROR\r\n");
                }
+               
             }
             
             ////// ABOUT Command //////

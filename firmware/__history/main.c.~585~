@@ -445,23 +445,20 @@ void main()
                }
                else if ((rx_msg[index_reader] == '=') && (rx_msg[index_reader+2] == '?')) // case 3 of PWMDUTY command
                {
-                  // read the channel
-                  desired_pwm_channel = rx_msg[index_reader+1];
-                  
                   // answer the command
-                  if (desired_pwm_channel == '1')
+                  if (rx_msg[index_reader+1] == '1')
                   {
                      printf("+PWMDUTY1:%X%X\r\n", (int)(desired_dutycycle_pwm1>>8), (int)(desired_dutycycle_pwm1));
                   }
-                  else if (desired_pwm_channel == '2')
+                  else if (rx_msg[index_reader+1] == '2')
                   {
                      printf("+PWMDUTY2:%X%X\r\n", (int)(desired_dutycycle_pwm2>>8), (int)(desired_dutycycle_pwm2));
                   }
-                  else if (desired_pwm_channel == '3')
+                  else if (rx_msg[index_reader+1] == '3')
                   {
                      printf("+PWMDUTY3:%X%X\r\n", (int)(desired_dutycycle_pwm3>>8), (int)(desired_dutycycle_pwm3));
                   }
-                  else if (desired_pwm_channel == '4')
+                  else if (rx_msg[index_reader+1] == '4')
                   {
                      printf("+PWMDUTY4:%X%X\r\n", (int)(desired_dutycycle_pwm4>>8), (int)(desired_dutycycle_pwm4));
                   }
@@ -521,6 +518,7 @@ void main()
                   // the command is not recognized
                   printf("ERROR\r\n");
                }
+               
             }
             
             ////// ABOUT Command //////
