@@ -522,8 +522,11 @@ void Manage_HELP_Command(void)
 }
 
 
+
+
+
 /* 
-* Function to clear buffers of UART communications
+* Function to clear buffers of UART communication
 */
 void Clear_Buffers(void)
 {

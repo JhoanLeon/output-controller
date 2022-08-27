@@ -521,7 +521,6 @@ void Manage_HELP_Command(void)
    printf("OK\r\n");
 }
 
-
 /* 
 * Function to clear buffers of UART communications
 */

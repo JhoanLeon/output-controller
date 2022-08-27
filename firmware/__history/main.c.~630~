@@ -511,19 +511,14 @@ void Manage_ABOUT_Command(void)
 */
 void Manage_HELP_Command(void)
 {
-   // answer the command
-   printf("AT  Comando de prueba\r\n");
-   printf("AT+ANOUT  Para establecer salidas analogas\r\n");
-   printf("AT+PWMPERIOD  Para establecer periodo de canales PWM\r\n");
-   printf("AT+PWMDUTY  Para establecer ciclo de trabajo de canales PWM\r\n");
-   printf("AT+ABOUT  Para mostrar informacion del producto\r\n");
-   printf("AT+HELP  Para mostrar lista de comandos\r\n");
-   printf("OK\r\n");
-}
+
+
+
+
 
 
 /* 
-* Function to clear buffers of UART communications
+* Function to clear buffers of UART communication
 */
 void Clear_Buffers(void)
 {
@@ -658,7 +653,14 @@ void main()
             ////// HELP command //////
             else if ( (strcmp(identifier_msg, CMD_5) == 0) || (strcmp(identifier_msg, CMD_5_5) == 0) ) 
             {
-               Manage_HELP_Command();
+               // answer the command
+               printf("AT  Comando de prueba\r\n");
+               printf("AT+ANOUT  Para establecer salidas analogas\r\n");
+               printf("AT+PWMPERIOD  Para establecer periodo de canales PWM\r\n");
+               printf("AT+PWMDUTY  Para establecer ciclo de trabajo de canales PWM\r\n");
+               printf("AT+ABOUT  Para mostrar informacion del producto\r\n");
+               printf("AT+HELP  Para mostrar lista de comandos\r\n");
+               printf("OK\r\n");
             }
             
             else
