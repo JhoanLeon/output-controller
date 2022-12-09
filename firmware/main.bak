@@ -286,7 +286,7 @@ void Update_DAC_Output(int channel, unsigned int16 value)
    if (channel == 1)
    {
       // to channel 1
-      spi_dac_command_H = 0x10 | (value >> 6)&0x0F; //  CH1:1Y(0001-Y) / CH2:5Y(0101-Y)
+      spi_dac_command_H = 0x10 | (value >> 12)&0x0F; //  CH1:1Y(0001-Y) / CH2:5Y(0101-Y)
       spi_dac_command_L = (value << 2) & 0xFF; //  YY(Y-HH00)
       spi_write(spi_dac_command_H);
       spi_write(spi_dac_command_H);
@@ -294,7 +294,7 @@ void Update_DAC_Output(int channel, unsigned int16 value)
    else // channel 2
    {
       // to channel 2
-      spi_dac_command_H = 0x50 | (value >> 6)&0x0F; //  CH1:1Y(0001-Y) / CH2:5Y(0101-Y)
+      spi_dac_command_H = 0x50 | (value >> 12)&0x0F; //  CH1:1Y(0001-Y) / CH2:5Y(0101-Y)
       spi_dac_command_L = (value << 2) & 0xFF; //  YY(Y-HH00)
       spi_write(spi_dac_command_H);
       spi_write(spi_dac_command_H);
